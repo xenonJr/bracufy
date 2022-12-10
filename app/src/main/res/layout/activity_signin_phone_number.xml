@@ -4,10 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/scr_background"
+    android:gravity="center_vertical"
     tools:context=".View.SignInPhone">
 
     <!--Edittext for getting users phone number-->
+
+    <!--Button for getting OTP-->
+
+
     <EditText
+
         android:id="@+id/idEdtPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,11 +23,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/white"
         android:hint="Enter your phone"
         android:importantForAutofill="no"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
-    <!--Button for getting OTP-->
     <Button
         android:id="@+id/idBtnGetOtp"
         android:layout_width="match_parent"
@@ -30,6 +39,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/long_round_button"
         android:text="Get OTP"
         android:textAllCaps="false" />
 
@@ -39,10 +49,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/idBtnGetOtp"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:hint="Enter OTP"
+        android:backgroundTint="@color/white"
         android:importantForAutofill="no"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <!--button for verifying user OTP-->
     <Button
@@ -54,6 +70,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/long_round_button"
         android:text="Verify OTP"
         android:textAllCaps="false" />
 
