@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "382017699617",
+    "project_id": "bracufy",
+    "storage_bucket": "bracufy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382017699617:android:b5096d883ef90d1b384860",
+        "android_client_info": {
+          "package_name": "com.example.bracufy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382017699617-19l7rfoqiij62qjv67io9ib3h6ufjpph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bracufy",
+            "certificate_hash": "860c5133f0ea8e6431587ae522b761ef08432072"
+          }
+        },
+        {
+          "client_id": "382017699617-1i6esmelb8vmekuj66a56khetpsdd6uq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo7xG1kZZ9ys7W5bD5otiBJy9hzB7H51E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382017699617-1i6esmelb8vmekuj66a56khetpsdd6uq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
