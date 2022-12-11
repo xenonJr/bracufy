@@ -123,7 +123,7 @@ public class SignInPhone extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent i = new Intent(SignInPhone.this, SplashActivity.class);
+                            Intent i = new Intent(SignInPhone.this, HomePage.class);
                             startActivity(i);
                             finish();
                         } else {
