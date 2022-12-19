@@ -95,6 +95,45 @@
 
     </LinearLayout>
 
+    <TextView
+        android:text="Featured Lectures"
+        android:textSize="23dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppmid"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_width="370dp"
+        android:layout_height="50dp">
+
+    </TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginLeft="7dp"
+                android:id="@+id/lecture_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
 
 
 
