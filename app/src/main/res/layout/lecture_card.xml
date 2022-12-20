@@ -20,7 +20,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_gravity="center"
-        android:layout_width="245dp"
+        android:layout_width="185dp"
         android:layout_height="75dp">
         <TextView
             android:id="@+id/course_name"
@@ -52,5 +52,14 @@
         android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginLeft="5dp">
+    </ImageButton>
+    <ImageButton
+        android:background="@drawable/circle_button"
+        android:src="@drawable/fav_before"
+        android:id="@+id/favourite"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="17dp">
     </ImageButton>
 </LinearLayout>

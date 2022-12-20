@@ -4,13 +4,15 @@ import java.io.Serializable;
 
 public class Lecture implements Serializable {
     public String courseName,url,backGroundPic,topicName;
+    boolean isFavourite;
 
 
-    public Lecture(String courseName, String url, String backGroundPic, String topicName) {
+    public Lecture(String courseName, String url, String backGroundPic, String topicName,boolean isFavourite) {
         this.courseName = courseName;
         this.url = url;
         this.backGroundPic = backGroundPic;
         this.topicName = topicName;
+        this.isFavourite = isFavourite;
     }
 
     public Lecture(String courseName, String url, String topicName) {
@@ -21,6 +23,14 @@ public class Lecture implements Serializable {
 
     public Lecture(){
 
+    }
+
+    public boolean getisFavourite() {
+        return isFavourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        isFavourite = favourite;
     }
 
     public String getCourseName() {

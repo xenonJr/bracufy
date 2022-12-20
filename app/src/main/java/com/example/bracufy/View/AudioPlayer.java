@@ -20,11 +20,12 @@ import java.io.IOException;
 
 public class AudioPlayer extends AppCompatActivity {
 
-    ImageButton playBtn, pauseBtn,stopBtn;
+    ImageButton playBtn, pauseBtn,stopBtn,makeFavorite;
     MediaPlayer mediaPlayer;
     TextView courseName,topicName,seekHint;
     SeekBar seekBar;
     boolean wasPlaying = false;
+    boolean isFav = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class AudioPlayer extends AppCompatActivity {
         playBtn = findViewById(R.id.idBtnPlay);
         pauseBtn = findViewById(R.id.idBtnPause);
         stopBtn = findViewById(R.id.idBtnStop);
+        makeFavorite = findViewById(R.id.makeFav);
 
         courseName = findViewById(R.id.course_name);
         topicName = findViewById(R.id.topic_name);
@@ -102,6 +104,9 @@ public class AudioPlayer extends AppCompatActivity {
                 }
             }
         });
+
+
+
     }
 
     private void playAudio(String audioUrl) {

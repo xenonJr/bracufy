@@ -21,6 +21,8 @@ import com.bumptech.glide.Glide;
 import com.example.bracufy.Model.Lecture;
 import com.example.bracufy.R;
 import com.example.bracufy.View.AudioPlayer;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
 import java.util.List;
@@ -28,8 +30,12 @@ import java.util.List;
 public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureViewHolder> {
 
     List<Lecture> LectureList;
+    List<DatabaseReference> databaseReferenceList;
     FragmentActivity fragmentActivity;
     Context context;
+    boolean isFav = false;
+
+
 
     public LectureAdapter(List<Lecture> LectureList, FragmentActivity fragmentActivity) {
         this.LectureList = LectureList;
@@ -40,6 +46,12 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
     public LectureAdapter(List<Lecture> LectureList, Context context) {
         this.LectureList = LectureList;
         this.context = context;
+    }
+
+    public LectureAdapter(List<Lecture> LectureList, Context context, List<DatabaseReference> databaseReference){
+        this.LectureList = LectureList;
+        this.context = context;
+        this.databaseReferenceList = databaseReference;
     }
 
 
@@ -59,12 +71,12 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
         holder.topicName.setText(LectureList.get(position).topicName);
         holder.courseName.setText(LectureList.get(position).courseName);
         Glide.with(context).load(R.drawable.splash_back).into(holder.picture);
+        if(LectureList.get(position).getisFavourite()==true){
+            holder.fav.setImageResource(R.drawable.favourite);
+            isFav = true;
+        }
 
-//        if(LectureList.get(position).getBackGroundPic()!=null){
-//            Glide.with(context)
-//                    .load(LectureList.get(position).getBackGroundPic())
-//                    .into(holder.picture);
-//        }
+//
 
         holder.play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +86,25 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
                 intent.putExtra("lecture", LectureList.get(position));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
+            }
+        });
+
+        holder.fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isFav==false){
+                    holder.fav.setImageResource(R.drawable.favourite);
+                    Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT).show();
+                    isFav = true;
+                    LectureList.get(position).setFavourite(true);
+                    databaseReferenceList.get(position).setValue(LectureList.get(position));
+                }else{
+                    holder.fav.setImageResource(R.drawable.fav_before);
+                    Toast.makeText(context, "Removed to Favourites", Toast.LENGTH_SHORT).show();
+                    isFav = false;
+                    LectureList.get(position).setFavourite(false);
+                    databaseReferenceList.get(position).setValue(LectureList.get(position));
+                }
             }
         });
 
@@ -89,7 +120,7 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
     public class LectureViewHolder extends RecyclerView.ViewHolder {
         ImageView picture;
         TextView courseName,topicName;
-        ImageButton play;
+        ImageButton play,fav;
 
         public LectureViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,6 +128,7 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
             courseName = itemView.findViewById(R.id.course_name);
             topicName = itemView.findViewById(R.id.topic_name);
             play = itemView.findViewById(R.id.play_button);
+            fav = itemView.findViewById(R.id.favourite);
 
         }
     }

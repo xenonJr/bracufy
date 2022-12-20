@@ -35,12 +35,13 @@ public class HomeFragment extends Fragment  {
     RecyclerView recyclerView;
     LectureAdapter lectureAdapter;
     List<Lecture> lectureList;
+    List<DatabaseReference> databaseReferenceList;
 
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    MediaPlayer mediaPlayer;
+
 
 
     @Override
@@ -50,6 +51,7 @@ public class HomeFragment extends Fragment  {
 
 
         lectureList = new ArrayList<>();
+        databaseReferenceList = new ArrayList<>();
 
         firebaseDatabase = FirebaseDatabase.getInstance("https://bracufy-default-rtdb.asia-southeast1.firebasedatabase.app");
         databaseReference = firebaseDatabase.getReference("Lectures");
@@ -62,30 +64,7 @@ public class HomeFragment extends Fragment  {
 
 
 
-
-
-        //dummy lecture//
-
-        Lecture lecture1 = new Lecture("Cse 470","Class 1", "linear layout");
-        Lecture lecture2 = new Lecture("Cse 270","Class 1", "diffrent layout");
-        Lecture lecture3 = new Lecture("Cse 170","Class 1", "other layout");
-
-//        lectureList.add(lecture1);
-//        lectureList.add(lecture2);
-//        lectureList.add(lecture3);
-//        lectureList.add(lecture1);
-//        lectureList.add(lecture2);
-//        lectureList.add(lecture3);
-//        lectureList.add(lecture1);
-//        lectureList.add(lecture2);
-//        lectureList.add(lecture3);
-
-        //dummy lecture//
-
-
-
-
-        //getting products from firebase
+        //getting lectures from firebase
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -94,9 +73,11 @@ public class HomeFragment extends Fragment  {
                         Lecture l= npsnapshot.getValue(Lecture.class);
                         Log.d("DB",l.courseName);
                         Log.d("DB",l.topicName);
+                        Log.d("DB ref",String.valueOf(npsnapshot.getRef()));
                         lectureList.add(l);
+                        databaseReferenceList.add(npsnapshot.getRef());
                     }
-                    lectureAdapter = new LectureAdapter(lectureList,inflater.getContext());
+                    lectureAdapter = new LectureAdapter(lectureList,inflater.getContext(),databaseReferenceList);
                     recyclerView.setAdapter(lectureAdapter);
                 }
             }
