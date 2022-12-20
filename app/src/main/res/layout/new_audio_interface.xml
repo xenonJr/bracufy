@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/scr_background"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:src="@drawable/splash_back"
+        android:id="@+id/splash_image"
+        android:layout_margin="30dp"
+        android:layout_gravity="center">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:text="CSE 470"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppmid"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/topic_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="lecture 1"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppmid"
+        android:textStyle="bold" />
+
+
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_margin="16dp"
+        android:thumbTint="@color/btn_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppmid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:background="@drawable/circle_alt"
+            android:id="@+id/idBtnPlay"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/play_white"
+            android:text="PLAY SOUND" />
+        <ImageButton
+            android:background="@drawable/circle_alt"
+            android:id="@+id/idBtnPause"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/pause_white"
+            android:text="PLAY SOUND" />
+
+        <ImageButton
+            android:background="@drawable/circle_alt"
+            android:id="@+id/idBtnStop"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/stop_white"
+            android:text="PLAY SOUND" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

@@ -1,6 +1,8 @@
 package com.example.bracufy.Model;
 
-public class Lecture {
+import java.io.Serializable;
+
+public class Lecture implements Serializable {
     public String courseName,url,backGroundPic,topicName;
 
 

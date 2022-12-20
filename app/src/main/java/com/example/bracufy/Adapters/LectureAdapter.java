@@ -3,6 +3,7 @@ package com.example.bracufy.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.example.bracufy.Model.Lecture;
 import com.example.bracufy.R;
 import com.example.bracufy.View.AudioPlayer;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureViewHolder> {
@@ -69,6 +71,7 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
             public void onClick(View view) {
                 Intent intent = new Intent(context, AudioPlayer.class);
                 intent.putExtra("url",LectureList.get(position).getUrl());
+                intent.putExtra("lecture", LectureList.get(position));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
