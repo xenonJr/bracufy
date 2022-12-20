@@ -22,12 +22,6 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
 
-//        WebView browser = view.findViewById(R.id.webview);
-////        browser.loadUrl("http://www.tutorialspoint.com");
-//        browser.getSettings().setLoadsImagesAutomatically(true);
-//        browser.getSettings().setJavaScriptEnabled(true);
-//        browser.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-//        browser.loadUrl("https://www.conferencealerts.org/teaching-and-learning.php");
 
 
         return view;

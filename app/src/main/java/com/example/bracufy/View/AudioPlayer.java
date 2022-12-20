@@ -22,7 +22,7 @@ public class AudioPlayer extends AppCompatActivity {
 
     ImageButton playBtn, pauseBtn,stopBtn;
     MediaPlayer mediaPlayer;
-    TextView courseName,topicName;
+    TextView courseName,topicName,seekHint;
     SeekBar seekBar;
     boolean wasPlaying = false;
 
@@ -45,7 +45,7 @@ public class AudioPlayer extends AppCompatActivity {
 
         seekBar = findViewById(R.id.seekbar);
 
-        final TextView seekBarHint = findViewById(R.id.textView);
+        seekHint = findViewById(R.id.textView);
 
 
         courseName.setText(lecture.courseName);
@@ -55,12 +55,12 @@ public class AudioPlayer extends AppCompatActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                seekBarHint.setVisibility(View.VISIBLE);
+                seekHint.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
-                seekBarHint.setVisibility(View.VISIBLE);
+                seekHint.setVisibility(View.VISIBLE);
                 int x = (int) Math.ceil(progress / 1000f);
 
                 if (x  > 0 && mediaPlayer != null && !mediaPlayer.isPlaying()) {
@@ -128,7 +128,7 @@ public class AudioPlayer extends AppCompatActivity {
                 mediaPlayer.setVolume(0.5f, 0.5f);
                 mediaPlayer.setLooping(false);
                 seekBar.setMax(mediaPlayer.getDuration());
-
+                seekHint.setText(String.valueOf(mediaPlayer.getDuration()));
                 mediaPlayer.start();
                 new Thread().start();
 
