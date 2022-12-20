@@ -65,5 +65,15 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
 
+    //database
+    implementation 'com.google.firebase:firebase-database:19.6.0'
+
+
+    //mat
+    implementation 'com.google.android.material:material:1.2.1'
+
+
+
+
 }
 apply plugin: 'com.google.gms.google-services'
